@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will Hayden | Code • Photography • Music</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=JetBrains+Mono:wght@300;400;500;700&family=Chakra+Petch:wght@300;400;500;600;700&display=swap">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header>
+        <div class="container">
+            <nav>
+                <input type="checkbox" id="burger-toggle">
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#music">Music</a></li>
+                    <li><a href="#photography">Photography</a></li>
+                    <li><a href="#news">News</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <label for="burger-toggle" class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </label>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Hello, I'm <span class="highlight">Will Hayden</span></h1>
+                <h2>Software Engineer • DJ • Photographer</h2>
+                <blockquote class="hero-quote">
+                    <p>"Whatever this is that I am, it is a little flesh and breath."</p>
+                    <cite>- Marcus Aurelius</cite>
+                </blockquote>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn primary btn-fixed-width">My Work</a>
+                    <a href="#contact" class="btn primary btn-fixed-width">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Separator -->
+    <div class="section-separator"></div>
+
+    <!-- Main Content Wrapper for consistent background -->
+    <div class="main-content-wrapper">
+        <!-- ==================== ABOUT SECTION ==================== -->
+        <section id="about" class="about scroll-reveal">
+            <div class="container">
+                <h2 class="section-title">About</h2>
+                <div class="about-content">
+                    <div class="about-image">
+                        <div class="image-placeholder">
+                            <img src="assets/images/about-me-image.png" alt="Will Hayden">
+                        </div>
+                    </div>
+                    <div class="about-text">
+                        <p>Originally from Virginia, and currently based in Boston, I'm a lifelong learner aiming to understand the world through technology, art, and music.</p>
+                        <p>I am the founder of Greycliff Technologies, a software company that aims to democratize access to frontier innovations through our products Mentat and Sphynx.</p>
+                        
+                        
+                        <!-- CV Button -->
+                        <div class="about-cta">
+                            <a href="assets/documents/cv.pdf" class="btn primary btn-fixed-width" target="_blank"><i class="fas fa-file-alt"></i> Download CV</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== PROJECTS SECTION ==================== -->
+        <section id="projects" class="projects scroll-reveal">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                
+                <!-- Projects Grid -->
+                <div class="projects-grid">
+                    <!-- PlateMath Project -->
+                    <div class="project-card-wrapper">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <div class="project-icon">
+                                    <i class="fas fa-dumbbell"></i>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3><a href="projects/platemath.html" class="project-title-link">PlateMath</a></h3>
+                                <p>A powerlifting assistant app that calculates RPE and visualizes barbell loading for workout planning.</p>
+                                <div class="project-tags">
+                                    <span>Swift</span>
+                                    <span>SwiftUI</span>
+                                    <span>iOS</span>
+                                    <span>Fitness</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/haydenwbc/PlateMath" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- English-Greek Transformers Project -->
+                    <div class="project-card-wrapper">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <div class="project-icon">
+                                    <i class="fas fa-language"></i>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3><a href="projects/transformers.html" class="project-title-link">English-Greek Transformers</a></h3>
+                                <p>Jupyter notebook implementation of transformer models for English to Greek translation with research paper.</p>
+                                <div class="project-tags">
+                                    <span>Python</span>
+                                    <span>NLP</span>
+                                    <span>Transformers</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/haydenwbc/English-Greek-Transformers-Demo" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Java Yahtzee Project -->
+                    <div class="project-card-wrapper">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <div class="project-icon">
+                                    <i class="fas fa-dice"></i>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3><a href="projects/yahtzee.html" class="project-title-link">Java Yahtzee</a></h3>
+                                <p>A command-line implementation of the classic Yahtzee dice game built with Java and OOP principles.</p>
+                                <div class="project-tags">
+                                    <span>Java</span>
+                                    <span>OOP</span>
+                                    <span>CLI</span>
+                                    <span>Design</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/haydenwbc/yahtzeeJava" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== MUSIC SECTION ==================== -->
+        <section id="music" class="music scroll-reveal" style="padding-top: 150px; margin-top: 50px; position: relative; clear: both; z-index: 1; display: block; width: 100%;">
+            <div class="container">
+                <h2 class="section-title">Music</h2>
+                <div class="music-content">
+                    <div class="music-info">
+                        <h3>My DJ Journey</h3>
+                        <p>Growing up listening to Flume, Disclosure, Skrillex, Deadmau5, and more, Electronic Music has served as the soundtrack to my life for over a decade. In 2023, I adopted the alias "Doctor B" and began to spin House, Techno, and UK Garage to share my love of electronic music with my community.</p>
+                        <div class="music-platforms">
+                            <a href="https://soundcloud.com/selectadoctorb" target="_blank" class="platform-link"><i class="fab fa-soundcloud"></i> SoundCloud</a>
+                        </div>
+                    </div>
+                    <div class="music-player">
+                        <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" 
+                            src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/selectadoctorb/reinforcement-learning-2-17-25&color=%230099ff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+                        </iframe>
+                    </div>
+                </div>
+                <div class="upcoming-events">
+                    <h3>Upcoming Events</h3>
+                    <div class="events-list">
+                        <div class="event-card">
+                            <div class="event-date">
+                                <span class="day">21</span>
+                                <span class="month">March</span>
+                            </div>
+                            <div class="event-details">
+                                <h4>Techno Party</h4>
+                                <p class="event-location"><i class="fas fa-map-marker-alt"></i> The Mods, Boston College</p>
+                                <p class="event-time"><i class="far fa-clock"></i> 10:00 PM - 2:00 AM</p>
+                            </div>
+                            <a href="#" class="event-link">Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== PHOTOGRAPHY SECTION ==================== -->
+        <section id="photography" class="photography scroll-reveal">
+            <div class="container">
+                <h2 class="section-title">Photography</h2>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="assets/images/photography/pearl-tower.jpg" alt="Shanghai Pearl Tower at night" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/images/photography/matrix.jpg" alt="Matrix-like architectural shot" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/images/photography/sunset.jpg" alt="Beautiful sunset landscape" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/images/photography/green-river.jpg" alt="Green river landscape" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/images/photography/temple-of-knowledge.jpg" alt="Temple of knowledge" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/images/photography/scoot.jpg" alt="Urban scooter scene" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== NEWS SECTION ==================== -->
+        <section id="news" class="news scroll-reveal">
+            <div class="container">
+                <h2 class="section-title">News</h2>
+                <div class="news-grid">
+                    <!-- News Post -->
+                    <div class="news-card">
+                        <div class="news-content">
+                            <div class="news-date">
+                                <span class="day">13</span>
+                                <span class="month">March</span>
+                                <span class="year">2025</span>
+                            </div>
+                            <h3>Welcome to my portfolio website!</h3>
+                            <p>I'm excited to share my journey in technology, music, and photography through this platform. Stay tuned for updates on my latest projects and adventures!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CONTACT SECTION ==================== -->
+        <section id="contact" class="contact scroll-reveal">
+            <div class="container">
+                <h2 class="section-title">Contact</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <h3>Email</h3>
+                            <p>william@greycliff.tech</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h3>Location</h3>
+                            <p>Boston, MA, USA</p>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://github.com/haydenwbc" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/williamshayden/" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://www.instagram.com/realwillhayden" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form action="#" method="POST">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn primary btn-fixed-width">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== FOOTER ==================== -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <p>&copy; 2025 Will Hayden. All rights reserved.</p>
+                    <div class="footer-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div> <!-- End of main-content-wrapper -->
+
+    <!-- Simple toggle for mobile navigation and project filtering using only HTML/CSS -->
+    <style>
+        /* Hide radio buttons */
+        #filter-all, #filter-software, #filter-photography, #filter-music {
+            display: none;
+        }
+        
+        /* Style filter buttons */
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            border-radius: var(--border-radius-md);
+            color: var(--text-secondary);
+            background-color: var(--bg-secondary);
+            transition: all var(--transition-normal);
+            cursor: pointer;
+            display: inline-block;
+            margin: 0 5px;
+        }
+        
+        /* Active state for filter buttons */
+        #filter-all:checked ~ .project-filters label[for="filter-all"],
+        #filter-software:checked ~ .project-filters label[for="filter-software"],
+        #filter-photography:checked ~ .project-filters label[for="filter-photography"],
+        #filter-music:checked ~ .project-filters label[for="filter-music"] {
+            background-color: var(--accent-primary);
+            color: white;
+        }
+        
+        /* Show/hide projects based on selected filter */
+        #filter-all:checked ~ .projects-grid .project-card {
+            display: block;
+        }
+        
+        #filter-software:checked ~ .projects-grid .project-card:not([data-category="software"]),
+        #filter-photography:checked ~ .projects-grid .project-card:not([data-category="photography"]),
+        #filter-music:checked ~ .projects-grid .project-card:not([data-category="music"]) {
+            display: none;
+        }
+        
+        /* Mobile menu toggle CSS */
+        #burger-toggle {
+            display: none;
+        }
+        
+        @media screen and (max-width: 768px) {
+            #burger-toggle:checked ~ .nav-links {
+                transform: translateX(0);
+            }
+            
+            #burger-toggle:checked + .nav-links + .burger .line1 {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+            
+            #burger-toggle:checked + .nav-links + .burger .line2 {
+                opacity: 0;
+            }
+            
+            #burger-toggle:checked + .nav-links + .burger .line3 {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+        }
+    </style>
+</body>
+</html> 

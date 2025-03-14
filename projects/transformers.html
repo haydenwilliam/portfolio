@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English-Greek Transformers | Will Hayden</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=JetBrains+Mono:wght@300;400;500;700&family=Chakra+Petch:wght@300;400;500;600;700&display=swap">
+    <style>
+        /* Project page specific styles */
+        .project-hero {
+            height: 250px;
+            display: flex;
+            align-items: center;
+            background-color: var(--bg-primary);
+            position: relative;
+            overflow: hidden;
+            background: var(--gradient-background);
+        }
+
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.8) 0%,
+                rgba(0, 25, 50, 0.7) 50%,
+                rgba(0, 0, 0, 0.8) 100%);
+            z-index: 1;
+        }
+
+        .project-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            width: 100%;
+            padding: var(--spacing-lg);
+            border-bottom: 3px solid var(--accent-primary);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-hero-content h1 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            color: var(--accent-primary);
+            text-shadow: 0 0 15px rgba(0, 153, 255, 0.5);
+            letter-spacing: 0.03em;
+        }
+
+        .project-hero-content h2 {
+            font-family: var(--font-secondary);
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+
+        .project-details {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .project-section {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .project-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--accent-primary);
+            font-family: var(--font-display);
+        }
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .tech-item {
+            background-color: rgba(0, 153, 255, 0.1);
+            color: var(--accent-primary);
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius-md);
+            font-family: var(--font-secondary);
+        }
+
+        .project-img {
+            width: 100%;
+            max-width: 700px;
+            margin: var(--spacing-md) auto;
+            display: block;
+            border-radius: var(--border-radius-md);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .code-example {
+            font-family: var(--font-code);
+            background-color: rgba(15, 21, 32, 0.8);
+            padding: 1.5rem;
+            border-radius: var(--border-radius-md);
+            margin: var(--spacing-md) 0;
+            overflow-x: auto;
+            border-left: 4px solid var(--accent-primary);
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-primary);
+            transition: color var(--transition-normal);
+        }
+
+        .back-button:hover {
+            color: var(--accent-primary);
+        }
+
+        .project-actions {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+
+        .research-paper {
+            background-color: rgba(15, 21, 32, 0.6);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-md);
+            margin: var(--spacing-lg) 0;
+            border-left: 4px solid var(--accent-primary);
+        }
+
+        .paper-citation {
+            font-style: italic;
+            margin-top: var(--spacing-md);
+            padding-top: var(--spacing-sm);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .model-diagram {
+            background-color: rgba(15, 21, 32, 0.6);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-md);
+            text-align: center;
+            margin: var(--spacing-md) 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--spacing-md) 0;
+            background-color: rgba(15, 21, 32, 0.6);
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        th {
+            background-color: rgba(0, 153, 255, 0.1);
+            color: var(--accent-primary);
+            font-weight: 700;
+        }
+
+        tr:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body>
+    <!-- ==================== HEADER ==================== -->
+    <header>
+        <div class="container">
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="../index.html#about">About</a></li>
+                    <li><a href="../index.html#projects">Projects</a></li>
+                    <li><a href="../index.html#music">Music</a></li>
+                    <li><a href="../index.html#photography">Photography</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ==================== PROJECT HERO ==================== -->
+    <section class="project-hero">
+        <div class="container">
+            <div class="project-hero-content">
+                <h1>English-Greek Transformers</h1>
+                <h2>NLP Translation Research Project</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PROJECT DETAILS ==================== -->
+    <div class="main-content-wrapper">
+        <section class="project-details">
+            <div class="container">
+                <a href="../index.html#projects" class="back-button">
+                    <i class="fas fa-arrow-left"></i> Back to Projects
+                </a>
+
+                <div class="project-section">
+                    <h3>Project Overview</h3>
+                    <p>This exploratory project implements a Jupyter notebook demonstration of transformer-based neural networks for English-to-Greek translation. The project showcases practical applications of NLP techniques to address the unique challenges of translating between languages with different alphabets and grammatical structures.</p>
+                    
+                    <div class="research-paper">
+                        <h4>Research Paper: "Transformer-Based Approaches to English-Greek Translation: Challenges and Optimizations"</h4>
+                        <p>This project accompanies a research paper that documents the methodologies, experiments, and findings from exploring transformer models for English-to-Greek translation.</p>
+                        <div class="project-actions" style="margin-top: var(--spacing-sm);">
+                            <a href="../assets/documents/NLPPaper.pdf" class="btn primary" target="_blank">
+                                <i class="fas fa-file-pdf"></i> Download Research Paper
+                            </a>
+                        </div>
+                        <p class="paper-citation">Hayden, W. and Antoniadis, A. (2024). Transformer-Based Approaches to English-Greek Translation: Challenges and Optimizations. Unpublished manuscript.</p>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <h3>Project Components</h3>
+                    <ul>
+                        <li>Jupyter notebook implementation of transformer models for translation</li>
+                        <li>Custom tokenization and data processing for Greek characters</li>
+                        <li>Training and evaluation procedures with sample datasets</li>
+                        <li>Visualization of model attention patterns and performance metrics</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h3>Technologies & Methodologies</h3>
+                    <div class="tech-list">
+                        <span class="tech-item">Python</span>
+                        <span class="tech-item">Jupyter Notebook</span>
+                        <span class="tech-item">PyTorch</span>
+                        <span class="tech-item">Transformers</span>
+                        <span class="tech-item">Natural Language Processing</span>
+                    </div>
+                    <p>The project demonstrates the application of transformer architectures to neural machine translation, implementing models trained on parallel English-Greek corpora and evaluated using industry-standard metrics.</p>
+                </div>
+
+                <div class="project-section">
+                    <h3>Key Challenges & Solutions</h3>
+                    <p>Translating between English and Greek presents several unique challenges:</p>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Challenge</th>
+                                <th>Solution</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Different alphabets</td>
+                                <td>Custom tokenization strategy with special handling for Greek characters</td>
+                            </tr>
+                            <tr>
+                                <td>Complex Greek grammar with cases</td>
+                                <td>Expanded context window in attention mechanism</td>
+                            </tr>
+                            <tr>
+                                <td>Limited parallel training data</td>
+                                <td>Data augmentation and transfer learning from larger language models</td>
+                            </tr>
+                            <tr>
+                                <td>Word order differences</td>
+                                <td>Enhanced positional encoding and attention patterns</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="project-section">
+                    <h3>Results & Conclusions</h3>
+                    <p>The research demonstrated that transformer models can be effectively adapted for English-Greek translation with targeted modifications. The final model achieved BLEU scores competitive with commercial systems for this language pair, with particular improvements in handling Greek grammatical cases.</p>
+                    <p>Future work includes exploring larger models, incorporating linguistic features specific to Greek, and multi-task learning approaches combining translation with other NLP tasks.</p>
+                </div>
+
+                <div class="project-actions">
+                    <a href="https://github.com/haydenwbc/English-Greek-Transformers-Demo" class="btn primary" target="_blank">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                    <a href="../assets/documents/NLPPaper.pdf" class="btn secondary" target="_blank">
+                        <i class="fas fa-file-pdf"></i> Research Paper
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== FOOTER ==================== -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <p>&copy; 2025 Will Hayden. All rights reserved.</p>
+                    <div class="footer-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html> 
