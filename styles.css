@@ -2019,9 +2019,10 @@ footer {
     }
 }
 
-/* Search inputs styling */
+/* Search input styling */
 .search {
-  margin-bottom: 2rem;
+  margin: 1rem 0;
+  width: 100%;
 }
 
 .search input {
@@ -2033,12 +2034,18 @@ footer {
   border: 1px solid #eeeeee;
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  transition: all var(--transition-normal);
 }
 
 .search input:focus {
   outline: none;
   border-color: var(--accent-primary);
-  box-shadow: 0 0 5px rgba(var(--accent-primary-rgb), 0.3);
+  box-shadow: 0 0 0 2px rgba(var(--accent-primary-rgb), 0.2);
+}
+
+/* Dark mode adjustments for search */
+@media (prefers-color-scheme: dark) {
+  .search input {
+    border-color: #444;
+  }
 }
 

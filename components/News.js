@@ -1,8 +1,4 @@
-/**
- * Renders the News section with search functionality
- * @param {Array} newsItems - The news array from data.json
- */
-export default function renderNews(newsItems) {
+function renderNews(newsItems) {
   const newsSection = document.getElementById('news');
   if (!newsSection) return;
 
@@ -11,64 +7,51 @@ export default function renderNews(newsItems) {
     console.error('Could not find the .news-grid element.');
     return;
   }
-
-  // Add search container before the grid
+  
+  // Add search interface before news grid
   const searchContainer = document.createElement('div');
-  searchContainer.className = 'search';
+  searchContainer.className = 'search news-search';
   searchContainer.innerHTML = `
     <input type="search" name="news" placeholder="Search News...">
   `;
-
-  // Check if search container already exists
-  const existingSearch = newsSection.querySelector('.search');
-  if (!existingSearch) {
-    newsSection.insertBefore(searchContainer, gridContainer);
+  
+  // Insert search before the grid
+  if (gridContainer.parentNode) {
+    gridContainer.parentNode.insertBefore(searchContainer, gridContainer);
   }
-
-  // Add newslist container to hold news items
-  if (!gridContainer.classList.contains('newslist')) {
-    gridContainer.classList.add('newslist');
-  }
-
-  // Render all news items initially
+  
+  // Wrap grid in a container to easily replace its content
+  const newsList = document.createElement('div');
+  newsList.className = 'newslist';
+  
+  // Move grid into the list container
+  gridContainer.parentNode.insertBefore(newsList, gridContainer);
+  newsList.appendChild(gridContainer);
+  
+  // Render all news initially
   renderNewsItems(newsItems, gridContainer);
-
-  // Add event listener to search input
-  const search = newsSection.querySelector('.search input');
-  if (search) {
-    search.addEventListener("input", e => {
-      console.log(e.currentTarget);
-      console.log(e.target);
-      console.log(e.target.value);
-      
-      const value = e.target.value;
-      
-      // Filter news based on search value
-      const filtered = newsItems.filter(newsItem => {
-        const titleMatch = newsItem.title.toLowerCase().includes(value.toLowerCase());
-        const contentMatch = newsItem.content.toLowerCase().includes(value.toLowerCase());
-        const dateMatch = `${newsItem.day} ${newsItem.month} ${newsItem.year}`.toLowerCase().includes(value.toLowerCase());
-        
-        return titleMatch || contentMatch || dateMatch;
-      });
-      
-      console.log(filtered);
-      
-      // Get the newslist container
-      const list = gridContainer;
-      console.log(list);
-      
-      // Render filtered news
-      renderNewsItems(filtered, list);
-    });
-  }
+  
+  // Add event listener for search
+  const searchInput = searchContainer.querySelector('input[type="search"]');
+  searchInput.addEventListener('input', e => {
+    const value = e.target.value.trim();
+    
+    // Filter news based on search term
+    let filtered = newsItems;
+    if (value) {
+      filtered = newsItems.filter(item => 
+        item.title.toLowerCase().includes(value.toLowerCase()) || 
+        item.content.toLowerCase().includes(value.toLowerCase()) ||
+        `${item.day} ${item.month} ${item.year}`.toLowerCase().includes(value.toLowerCase())
+      );
+    }
+    
+    // Re-render news with filtered results
+    renderNewsItems(filtered, gridContainer);
+  });
 }
 
-/**
- * Renders individual news items
- * @param {Array} newsItems - The news items to render
- * @param {HTMLElement} container - The container to render news into
- */
+// Helper function to render news items
 function renderNewsItems(newsItems, container) {
   container.innerHTML = newsItems.map(item => `
     <div class="news-card">
@@ -83,4 +66,6 @@ function renderNewsItems(newsItems, container) {
       </div>
     </div>
   `).join('');
-} 
+}
+
+export default renderNews; 

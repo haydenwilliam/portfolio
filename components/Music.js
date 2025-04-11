@@ -1,8 +1,4 @@
-/**
- * Renders the Music section
- * @param {Object} music - The music data from data.json
- */
-export default function renderMusic(music) {
+function renderMusic(music) {
   const musicSection = document.getElementById('music');
   if (!musicSection) return;
 
@@ -15,13 +11,11 @@ export default function renderMusic(music) {
         <h3>${music.title}</h3>
         <p>${music.bio}</p>
         <div class="music-platforms">
-          <a href="${music.soundcloud_profile_url}" target="_blank" class="platform-link">
-            <i class="fab fa-soundcloud"></i> SoundCloud
-          </a>
+          <a href="${music.soundcloud_profile_url}" target="_blank" class="platform-link"><i class="fab fa-soundcloud"></i> SoundCloud</a>
         </div>
       </div>
       <div class="music-player">
-        <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+        <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" 
           src="${music.soundcloud_embed_url}">
         </iframe>
       </div>
@@ -54,4 +48,6 @@ export default function renderMusic(music) {
   } else {
     console.error('Could not find .upcoming-events element.');
   }
-} 
+}
+
+export default renderMusic; 

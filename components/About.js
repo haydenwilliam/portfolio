@@ -1,8 +1,4 @@
-/**
- * Renders the About section
- * @param {Object} about - The about data from data.json
- */
-export default function renderAbout(about) {
+function renderAbout(about) {
   const aboutSection = document.getElementById('about');
   if (!aboutSection) return;
 
@@ -18,12 +14,12 @@ export default function renderAbout(about) {
     <div class="about-text">
       ${about.bio.map(p => `<p>${p}</p>`).join('')}
       <div class="about-cta">
-        <a href="${about.cv_path}" class="btn primary btn-fixed-width" target="_blank">
-          <i class="fas fa-file-alt"></i> Download CV
-        </a>
+        <a href="${about.cv_path}" class="btn primary btn-fixed-width" target="_blank"><i class="fas fa-file-alt"></i> Download CV</a>
       </div>
     </div>
   `;
   
   contentContainer.innerHTML = aboutHTML;
-} 
+}
+
+export default renderAbout; 

@@ -1,8 +1,4 @@
-/**
- * Renders the Contact section
- * @param {Object} contact - The contact data from data.json
- */
-export default function renderContact(contact) {
+function renderContact(contact) {
   const contactSection = document.getElementById('contact');
   if (!contactSection) return;
 
@@ -23,13 +19,13 @@ export default function renderContact(contact) {
       </div>
       <div class="social-links">
         ${contact.social_links.map(link => `
-          <a href="${link.url}" target="_blank" class="social-link">
-            <i class="${link.icon_class}"></i>
-          </a>
+          <a href="${link.url}" target="_blank" class="social-link"><i class="${link.icon_class}"></i></a>
         `).join('')}
       </div>
     `;
   } else {
     console.error('Could not find .contact-info element.');
   }
-} 
+}
+
+export default renderContact; 

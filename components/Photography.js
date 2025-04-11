@@ -1,8 +1,4 @@
-/**
- * Renders the Photography section
- * @param {Array} photos - The photography data from data.json
- */
-export default function renderPhotography(photos) {
+function renderPhotography(photos) {
   const photographySection = document.getElementById('photography');
   if (!photographySection) return;
 
@@ -16,4 +12,6 @@ export default function renderPhotography(photos) {
   } else {
     console.error('Could not find .gallery element.');
   }
-} 
+}
+
+export default renderPhotography; 

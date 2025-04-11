@@ -1,8 +1,4 @@
-/**
- * Renders the Projects section with search functionality
- * @param {Array} projects - The projects array from data.json
- */
-export default function renderProjects(projects) {
+function renderProjects(projects) {
   const projectsSection = document.getElementById('projects');
   if (!projectsSection) return;
 
@@ -12,51 +8,53 @@ export default function renderProjects(projects) {
     return;
   }
 
-  // Add search input before the grid
+  // Add search interface before projects grid
   const searchContainer = document.createElement('div');
-  searchContainer.className = 'search';
+  searchContainer.className = 'search projects-search';
   searchContainer.innerHTML = `
     <input type="search" name="projects" placeholder="Search Projects...">
   `;
-
-  // Check if search container already exists
-  const existingSearch = projectsSection.querySelector('.search');
-  if (!existingSearch) {
-    projectsSection.insertBefore(searchContainer, gridContainer);
+  
+  // Insert search before the grid
+  if (gridContainer.parentNode) {
+    gridContainer.parentNode.insertBefore(searchContainer, gridContainer);
   }
-
+  
+  // Wrap grid in a container to easily replace its content
+  const projectsList = document.createElement('div');
+  projectsList.className = 'projects-list';
+  
+  // Move grid into the list container
+  gridContainer.parentNode.insertBefore(projectsList, gridContainer);
+  projectsList.appendChild(gridContainer);
+  
   // Render all projects initially
   renderProjectItems(projects, gridContainer);
-
-  // Add event listener to search input
-  const search = projectsSection.querySelector('.search input');
-  if (search) {
-    search.addEventListener("input", e => {
-      const value = e.target.value;
-      
-      // Filter projects based on search value
-      const filtered = projects.filter(project => {
-        const titleMatch = project.title.toLowerCase().includes(value.toLowerCase());
-        const descMatch = project.description.toLowerCase().includes(value.toLowerCase());
-        const tagMatch = project.tags.some(tag => tag.toLowerCase().includes(value.toLowerCase()));
-        
-        return titleMatch || descMatch || tagMatch;
-      });
-      
-      // Render filtered projects
-      renderProjectItems(filtered, gridContainer);
-    });
-  }
+  
+  // Add event listener for search
+  const searchInput = searchContainer.querySelector('input[type="search"]');
+  searchInput.addEventListener('input', e => {
+    const value = e.target.value.trim();
+    
+    // Filter projects based on search term
+    let filtered = projects;
+    if (value) {
+      filtered = projects.filter(project => 
+        project.title.toLowerCase().includes(value.toLowerCase()) || 
+        project.description.toLowerCase().includes(value.toLowerCase()) ||
+        project.tags.some(tag => tag.toLowerCase().includes(value.toLowerCase()))
+      );
+    }
+    
+    // Re-render projects with filtered results
+    renderProjectItems(filtered, gridContainer);
+  });
 }
 
-/**
- * Renders individual project items
- * @param {Array} projects - The projects to render
- * @param {HTMLElement} container - The container to render projects into
- */
+// Helper function to render project items
 function renderProjectItems(projects, container) {
   container.innerHTML = projects.map(project => `
-    <div class="project-card-wrapper">
+    <div class="project-card-wrapper" data-category="${project.tags[0].toLowerCase()}">
       <div class="project-card">
         <div class="project-image">
           <div class="project-icon">
@@ -64,9 +62,7 @@ function renderProjectItems(projects, container) {
           </div>
         </div>
         <div class="project-content">
-          <h3>
-            <a href="?project=${project.id}" class="project-title-link">${project.title}</a>
-          </h3>
+          <h3><a href="?project=${project.id}" class="project-title-link">${project.title}</a></h3> 
           <p>${project.description}</p>
           <div class="project-tags">
             ${project.tags.map(tag => `<span>${tag}</span>`).join('')}
@@ -79,4 +75,6 @@ function renderProjectItems(projects, container) {
       </div>
     </div>
   `).join('');
-} 
+}
+
+export default renderProjects; 
